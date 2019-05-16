@@ -3,10 +3,15 @@ const express = require('express');
 const path = require('path');
 const logger = require('morgan');
 
+const connect = require('./db/mongoConnect');
+
 const indexRouter = require('./routes/index');
 const articleRouter = require('./routes/articles');
 
 const app = express();
+
+// 몽구스에서 몽고디비와 커넥션 설정
+connect();
 
 // 미들웨어 설정
 app.use(logger('dev'));
