@@ -1,9 +1,11 @@
 const mongoose = require('mongoose');
+const uri = "mongodb+srv://admin:1234@cluster0-vu1ky.mongodb.net/test?retryWrites=true";
 
 module.exports = () => {
 
     const connect = () => {
-        mongoose.connect(uri, {dbName: 'test'}, function (err) {
+        mongoose.connect(
+                uri, {dbName: 'test', useNewUrlParser: true}, function (err) {
             if (err) {
                 console.log('connection error to mongodb');
             } else {
